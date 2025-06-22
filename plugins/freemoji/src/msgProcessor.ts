@@ -22,24 +22,24 @@ function extractUnusableEmojis(messageString: string, size: number) {
 			// Add to emotes to send
 			// Hacky fix, someone on discord removed url property for emoji
 			var ext = "webp"
-			if (emoji.animated){ ext = "gif"; }
+			if (emoji.animated) { ext = "gif"; }
 			if (storage.hyperlink === true) {
 				messageString = messageString.replace(
-					emojiString[0], 
-					`[${emojiString[1]}](https://cdn.discordapp.com/emojis/${emojiString[2]}.${ext}?size=${size}&quality=lossless&name=${emojiString[1]})`
+					emojiString[0],
+					`[⁥](https://cdn.discordapp.com/emojis/${emojiString[2]}.${ext}?size=${size}&quality=lossless&name=${emojiString[1]})`
 				);
 			} else {
 				messageString = messageString.replace(
-					emojiString[0], 
+					emojiString[0],
 					`https://cdn.discordapp.com/emojis/${emojiString[2]}.${ext}?size=${size}&quality=lossless&name=${emojiString[1]}`
 				);
 			}
 		}
 	}
-	
-	return { 
-        newContent: messageString.trim()
-    };
+
+	return {
+		newContent: messageString.trim()
+	};
 }
 
 export default function modifyIfNeeded(msg: Message) {
