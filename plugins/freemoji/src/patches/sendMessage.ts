@@ -4,6 +4,7 @@ import modifyIfNeeded from "../msgProcessor";
 
 const messageModule = findByProps("sendMessage", "receiveMessage");
 // const uploadModule = findByProps("uploadLocalFiles");
+//
 
 export default [
 	before("sendMessage", messageModule, (args) => modifyIfNeeded(args[1])),
